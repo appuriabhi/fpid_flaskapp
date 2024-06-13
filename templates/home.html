@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title> FPID Testing</title>
+    <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
+    <script>
+        window.digitalData = window.digitalData || {};
+        window.digitalData.page = window.digitalData.page || {};
+        window.digitalData.page.pageInfo = window.digitalData.page.pageInfo || {};
+        window.digitalData.page.pageInfo.pageName = "homepage";
+        window.digitalData.page.pageInfo.pageType = "home";
+        window.digitalData.page.pageInfo.language = "en";
+        window.digitalData.page.pageInfo.section = "home";
+        window.digitalData.page.pageInfo.pageURL = document.location.href;
+        window.digitalData.events = window.digitalData.events || [];
+        window.digitalData.user = window.digitalData.user || {}
+        window.digitalData.user.loggedInStatus = "guest"
+    </script>    
+</head>     
+<body>
+    <h1>AEP WebSDK: FPID Testing</h1>
+    <h2>Home Page</h2>
+    <h2>Page: 1</h2>
+    <p><a href="/about">Go to About Page</a></p>
+    <script src="https://assets.adobedtm.com/6d07e8369d1a/ce429816349b/launch-b6751615ec44.min.js"></script>
+</body>
+</html>
