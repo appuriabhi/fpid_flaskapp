@@ -11,19 +11,20 @@ def before_request():
 
     if not cookie_value:
         cookie_value = str(uuid.uuid4())
-
-    expires = datetime.now()
-    expires = expires + timedelta(days=30*13)
-    response = make_response()
-    response.set_cookie(cookie_name, cookie_value, expires=expires, secure=False, httponly=True, samesite='Lax', domain='fpid-flaskapp.onrender.com')
+        expires = datetime.now() + timedelta(days=30*13)
+        response = make_response()
+        response.set_cookie(cookie_name, cookie_value, expires=expires, secure=False, httponly=True, samesite='Lax', domain='fpid-flaskapp.onrender.com')
+        return response
 
 @app.route('/')
 def home():
-    return render_template('home.html')
+    response = make_response(render_template('home.html'))
+    return response
 
 @app.route('/about')
 def about():
-    return render_template('about.html')
+    response = make_response(render_template('about.html'))
+    return response
 
 if __name__ == '__main__':
     app.run(debug=True)
