@@ -13,7 +13,7 @@ def before_request():
         cookie_value = str(uuid.uuid4())
         expires = datetime.now() + timedelta(days=30*13)
         response = make_response()
-        response.set_cookie(cookie_name, cookie_value, expires=expires, secure=False, httponly=True, samesite='Lax')
+        response.set_cookie(cookie_name, cookie_value, expires=expires, secure=False, samesite='Lax')
         return response
 
 @app.route('/')
