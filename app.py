@@ -15,7 +15,7 @@ def before_request():
     expires = datetime.now()
     expires = expires + timedelta(days=30*13)
     response = make_response()
-    response.set_cookie(cookie_name, cookie_value, expires=expires, secure=True, httponly=True, samesite='Lax', domain='fpid-flaskapp.onrender.com')
+    response.set_cookie(cookie_name, cookie_value, expires=expires, secure=False, httponly=True, samesite='Lax', domain='fpid-flaskapp.onrender.com')
 
 @app.route('/')
 def home():
