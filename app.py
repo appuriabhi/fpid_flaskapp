@@ -16,6 +16,7 @@ def before_request():
         response.set_cookie(cookie_name, cookie_value, expires=expires, secure=False, samesite='Lax')
         return response
 
+#routes below
 @app.route('/')
 def home():
     response = make_response(render_template('home.html'))
