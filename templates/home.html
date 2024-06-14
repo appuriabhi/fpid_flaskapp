@@ -4,6 +4,21 @@
     <title> FPID Testing</title>
     <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
     <script>
+            function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+            }        
         window.digitalData = window.digitalData || {};
         window.digitalData.page = window.digitalData.page || {};
         window.digitalData.page.pageInfo = window.digitalData.page.pageInfo || {};
@@ -15,6 +30,7 @@
         window.digitalData.events = window.digitalData.events || [];
         window.digitalData.user = window.digitalData.user || {}
         window.digitalData.user.loggedInStatus = "guest"
+        window.digitalData.usr.fpid = getCookie("FPID")
     </script>    
 </head>     
 <body>

@@ -5,6 +5,21 @@
         <script src="{{ url_for('static', filename='js/scripts.js') }}"></script>
         
         <script>
+            function getCookie(cname) {
+            let name = cname + "=";
+            let decodedCookie = decodeURIComponent(document.cookie);
+            let ca = decodedCookie.split(';');
+            for(let i = 0; i <ca.length; i++) {
+                let c = ca[i];
+                while (c.charAt(0) == ' ') {
+                c = c.substring(1);
+                }
+                if (c.indexOf(name) == 0) {
+                return c.substring(name.length, c.length);
+                }
+            }
+            return "";
+            }
             window.digitalData = window.digitalData || {};
             window.digitalData.page = window.digitalData.page || {};
             window.digitalData.page.pageInfo = window.digitalData.page.pageInfo || {};
@@ -16,6 +31,7 @@
             window.digitalData.events = window.digitalData.events || [];
             window.digitalData.user = window.digitalData.user || {}
             window.digitalData.user.loggedInStatus = "guest"
+            window.digitalData.usr.fpid = getCookie("FPID")
         </script>    
     </head>  
 <body>
@@ -23,6 +39,6 @@
     <h2>About Page</h2>
     <h2>Page: 2</h2>
     <p><a href="/">Go to Home Page</a></p>
-    <script src="https://assets.adobedtm.com/6d07e8369d1a/ce429816349b/launch-b6751615ec44.min.js"></script>    
+    <script src="https://assets.adobedtm.com/6d07e8369d1a/ce429816349b/launch-b6751615ec44.min.js"></script>
 </body>
 </html>
